@@ -18,6 +18,7 @@ function computerSelection() {
 function playerSelection() {
     console.log("in the playerSelection function");
     let playerChoice = prompt("Enter rock, paper, or scissors");
+    playerChoice = playerChoice.toLowerCase();
     console.log("playerChoice = " + playerChoice);
     return playerChoice;
 }
@@ -38,21 +39,21 @@ function playRound(playerChoice, computerChoice) {
     switch (playerChoice) {
         case "rock":
             if (computerChoice == "scissors") {
-                gameResult = "win";
+                gameResult = "won";
             } else {
                 gameResult = "lost"
             }
             return gameResult;
         case "paper":
             if (computerChoice == "rock") {
-                gameResult = "win";
+                gameResult = "won";
             } else {
                 gameResult = "lost"
             }
             return gameResult;
         case "scissors":
             if (computerChoice == "paper") {
-                gameResult = "win";
+                gameResult = "won";
             } else {
                 gameResult = "lost"
             }
