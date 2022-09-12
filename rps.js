@@ -8,14 +8,22 @@ console.log("Hello, world!");
 
 const myArray = ["rock", "paper", "scissors"];
 
-function computerSelection() {
+// function computerSelection() {
+//     console.log("in the computerSelection function");
+//     let computerChoice = myArray[Math.floor(Math.random() * myArray.length)];
+//     console.log("computerChoice = " + computerChoice);
+//     return computerChoice;
+// }
+
+// converted computerSelection to arrow function
+computerSelection = () => {
     console.log("in the computerSelection function");
     let computerChoice = myArray[Math.floor(Math.random() * myArray.length)];
     console.log("computerChoice = " + computerChoice);
     return computerChoice;
 }
 
-function playerSelection() {
+playerSelection = () => {
     console.log("in the playerSelection function");
     let playerChoice = prompt("Enter rock, paper, or scissors");
     playerChoice = playerChoice.toLowerCase();
@@ -24,7 +32,7 @@ function playerSelection() {
 }
 
 
-function playRound(playerChoice, computerChoice) {
+playRound = (playerChoice, computerChoice) => {
     console.log("in the playRound function");
     let gameResult;
     // player enters choice for round
@@ -61,7 +69,7 @@ function playRound(playerChoice, computerChoice) {
     }
 }
 
-function game() {
+game = () => {
     /* call playRound() here and play a 
     5 round game that keeps score and reports a winner or loser
     at the end */
