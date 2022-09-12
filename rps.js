@@ -11,13 +11,14 @@ const myArray = ["rock", "paper", "scissors"];
 function computerSelection() {
     console.log("in the computerSelection function");
     let computerChoice = myArray[Math.floor(Math.random() * myArray.length)];
-    console.log(computerChoice);
+    console.log("computerChoice = " + computerChoice);
     return computerChoice;
 }
 
 function playerSelection() {
-    let playerChoice = prompt("Enter rock, paper, or scissors", "rock, paper, or scissors");
-    console.log(playerChoice);
+    console.log("in the playerSelection function");
+    let playerChoice = prompt("Enter rock, paper, or scissors");
+    console.log("playerChoice = " + playerChoice);
     return playerChoice;
 }
 
@@ -28,29 +29,29 @@ function playRound(playerChoice, computerChoice) {
     // player enters choice for round
 
     // handle a tie game
-    if (playerSelection == computerSelection) {
+    if (playerChoice == computerChoice) {
         gameResult = "tie";
         console.log("game is a tie");
         return gameResult;
     }
     // handle all other cases
-    switch (playerSelection) {
+    switch (playerChoice) {
         case "rock":
-            if (computerSelection == "scissors") {
+            if (computerChoice == "scissors") {
                 gameResult = "win";
             } else {
                 gameResult = "lost"
             }
             return gameResult;
         case "paper":
-            if (computerSelection == "rock") {
+            if (computerChoice == "rock") {
                 gameResult = "win";
             } else {
                 gameResult = "lost"
             }
             return gameResult;
         case "scissors":
-            if (computerSelection == "paper") {
+            if (computerChoice == "paper") {
                 gameResult = "win";
             } else {
                 gameResult = "lost"
@@ -63,6 +64,7 @@ function game() {
     /* call playRound() here and play a 
     5 round game that keeps score and reports a winner or loser
     at the end */
+    console.log("in the game function");
     let i = 0;
     let playerScore = 0;
     let computerScore = 0;
@@ -76,4 +78,8 @@ function game() {
 
 
 // let playerSelection = "rock";
+// console.log(playerSelection());
+// console.log(computerSelection());
+
+
 console.log(game());
