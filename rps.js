@@ -69,6 +69,11 @@ playRound = (playerChoice, computerChoice) => {
     }
 }
 
+logToDiv = () => {
+    let output = document.getElementById("output");
+    output.innerHTML = "Hello log world";
+}
+
 game = () => {
     /* call playRound() here and play a 
  game that keeps score and reports a winner or loser
@@ -78,10 +83,10 @@ game = () => {
     const buttons = document.querySelectorAll('button');
     buttons.forEach((button) => {
         button.addEventListener('click', () => {
-            alert(button.id);
-
+            console.log(button.id); //logs which button is clicked
+            console.log(typeof button.id);
         });
-    }
+    });
 
 
 
