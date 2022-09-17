@@ -71,17 +71,21 @@ playRound = (playerChoice, computerChoice) => {
 
 game = () => {
     /* call playRound() here and play a 
-    5 round game that keeps score and reports a winner or loser
+ game that keeps score and reports a winner or loser
     at the end */
     console.log("in the game function");
-    let i = 0;
-    let playerScore = 0;
-    let computerScore = 0;
-    for (i = 0; i < 5; i++) {
-        console.log(i);
-        console.log("Game result is " + playRound(playerSelection(), computerSelection()));
+
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            alert(button.id);
+
+        });
     }
 
+
+
+    console.log("Game result is " + playRound(playerSelection(), computerSelection()));
 }
 
 
