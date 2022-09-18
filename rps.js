@@ -8,29 +8,12 @@ console.log("Hello, world!");
 
 const myArray = ["rock", "paper", "scissors"];
 
-// function computerSelection() {
-//     console.log("in the computerSelection function");
-//     let computerChoice = myArray[Math.floor(Math.random() * myArray.length)];
-//     console.log("computerChoice = " + computerChoice);
-//     return computerChoice;
-// }
-
-// converted computerSelection to arrow function
 computerSelection = () => {
     console.log("in the computerSelection function");
     let computerChoice = myArray[Math.floor(Math.random() * myArray.length)];
     console.log("computerChoice = " + computerChoice);
     return computerChoice;
 }
-
-playerSelection = () => {
-    console.log("in the playerSelection function");
-    let playerChoice = prompt("Enter rock, paper, or scissors");
-    playerChoice = playerChoice.toLowerCase();
-    console.log("playerChoice = " + playerChoice);
-    return playerChoice;
-}
-
 
 playRound = (playerChoice, computerChoice) => {
     console.log("in the playRound function");
@@ -58,6 +41,7 @@ playRound = (playerChoice, computerChoice) => {
             } else {
                 gameResult = "lost"
             }
+            console.log(gameResult)
             return gameResult;
         case "scissors":
             if (computerChoice == "paper") {
@@ -67,6 +51,7 @@ playRound = (playerChoice, computerChoice) => {
             }
             return gameResult;
     }
+
 }
 
 logToDiv = () => {
@@ -75,33 +60,40 @@ logToDiv = () => {
 }
 
 game = () => {
+    // this function doesn't actually do anything anymore
+
     /* call playRound() here and play a 
  game that keeps score and reports a winner or loser
     at the end */
     console.log("in the game function");
 
-    const buttons = document.querySelectorAll('button');
-    buttons.forEach((button) => {
-        button.addEventListener('click', () => {
-            // add code to play a round once button is clicked
+    // const buttons = document.querySelectorAll('button');
+    // buttons.forEach((button) => {
+    //     button.addEventListener('click', () => {
+    //         // add code to play a round once button is clicked
 
-            console.log(button.id); //logs which button is clicked
-            console.log(typeof button.id);
+    //         console.log(button.id); //logs which button is clicked
+    //         console.log(typeof button.id);
 
-            return button.id;
-        });
-    });
+    //         return button.id;
+    //     });
+    // });
 
 
 
     console.log("Game result is " + playRound(playerSelection(button.id), computerSelection()));
 }
 
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        // add code to play a round once button is clicked
 
+        console.log(button.id); //logs which button is clicked
+        console.log(typeof button.id);
+        playerSelection = button.id;
+        console.log("gameResult is " + playRound(playerSelection, computerSelection()));
+        // console.log("gameResult is " + gameResult);
 
-// let playerSelection = "rock";
-// console.log(playerSelection());
-// console.log(computerSelection());
-
-
-console.log(game());
+    });
+});
