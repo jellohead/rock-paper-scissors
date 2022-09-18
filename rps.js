@@ -4,12 +4,10 @@
 // paper > rock
 // scissors > paper
 
-console.log("Hello, world!");
-
 const myArray = ["rock", "paper", "scissors"];
 
 computerSelection = () => {
-    console.log("in the computerSelection function");
+    // console.log("in the computerSelection function");
     let computerChoice = myArray[Math.floor(Math.random() * myArray.length)];
     console.log("computerChoice = " + computerChoice);
     return computerChoice;
@@ -51,7 +49,6 @@ playRound = (playerChoice, computerChoice) => {
             }
             return gameResult;
     }
-
 }
 
 logToDiv = () => {
@@ -59,41 +56,51 @@ logToDiv = () => {
     output.innerHTML = "Hello log world";
 }
 
-game = () => {
-    // this function doesn't actually do anything anymore
-
-    /* call playRound() here and play a 
- game that keeps score and reports a winner or loser
-    at the end */
-    console.log("in the game function");
-
-    // const buttons = document.querySelectorAll('button');
-    // buttons.forEach((button) => {
-    //     button.addEventListener('click', () => {
-    //         // add code to play a round once button is clicked
-
-    //         console.log(button.id); //logs which button is clicked
-    //         console.log(typeof button.id);
-
-    //         return button.id;
-    //     });
-    // });
-
-
-
-    console.log("Game result is " + playRound(playerSelection(button.id), computerSelection()));
-}
-
+let runningScorePlayer = 0,
+    runningScoreComputer = 0,
+    tieScore = 0,
+    countGames = 0,
+    paragraph,
+    text;
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         // add code to play a round once button is clicked
+        countGames = ++countGames;
+        // update gameCount div
+        let gameNumber = document.getElementById('gameCount');
+        gameNumber.textContent = `Game count = ${countGames}`;
 
-        console.log(button.id); //logs which button is clicked
-        console.log(typeof button.id);
+
+        console.log("countGames = " + countGames);
+        console.log("playerSelction and button clicked = " + button.id); //logs which button is clicked
+        // console.log(typeof button.id);
         playerSelection = button.id;
-        console.log("gameResult is " + playRound(playerSelection, computerSelection()));
-        // console.log("gameResult is " + gameResult);
 
+        gameResult = playRound(playerSelection, computerSelection());
+
+        console.log("gameResult after play= " + gameResult);
+        //running score
+
+
+        switch (gameResult) {
+            case "tie":
+                tieScore = tieScore + 1;
+                break;
+            case "won":
+                runningScorePlayer = runningScorePlayer + 1;
+                break;
+            case "lost":
+                runningScoreComputer = runningScoreComputer + 1;
+                break;
+        }
+
+        console.log("Running score: \n" + "Player = " + runningScorePlayer + "\nComputer = " + runningScoreComputer + "\nTie = " + tieScore);
+
+
+
+        if (countGames === 5) {
+            console.log("Completed 5 games");
+        }
     });
 });
