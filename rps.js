@@ -104,11 +104,14 @@ buttons.forEach((button) => {
         scoreTie = document.getElementById('tieScore');
         scoreTie.textContent = `Tie score = ${tieScore}`;
 
-
-
-
-        if (countGames === 5) {
+        if (runningScorePlayer === 5) {
+            gameOver = document.getElementById('results');
+            gameOver.textContent = 'Game over! You won 5 games.';
             console.log("Completed 5 games");
+        } else if (runningScoreComputer === 5) {
+            gameOver = document.getElementById('results');
+            gameOver.textContent = 'Game over! Computer won 5 games.';
+
         }
     });
 });
