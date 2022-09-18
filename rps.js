@@ -60,6 +60,7 @@ let runningScorePlayer = 0,
     runningScoreComputer = 0,
     tieScore = 0,
     countGames = 0,
+    gameNumber = 0,
     paragraph,
     text;
 const buttons = document.querySelectorAll('button');
@@ -68,9 +69,8 @@ buttons.forEach((button) => {
         // add code to play a round once button is clicked
         countGames = ++countGames;
         // update gameCount div
-        let gameNumber = document.getElementById('gameCount');
+        gameNumber = document.getElementById('gameCount');
         gameNumber.textContent = `Game count = ${countGames}`;
-
 
         console.log("countGames = " + countGames);
         console.log("playerSelction and button clicked = " + button.id); //logs which button is clicked
@@ -81,8 +81,6 @@ buttons.forEach((button) => {
 
         console.log("gameResult after play= " + gameResult);
         //running score
-
-
         switch (gameResult) {
             case "tie":
                 tieScore = tieScore + 1;
@@ -96,6 +94,16 @@ buttons.forEach((button) => {
         }
 
         console.log("Running score: \n" + "Player = " + runningScorePlayer + "\nComputer = " + runningScoreComputer + "\nTie = " + tieScore);
+        //running totals
+        scorePlayer = document.getElementById('playerScore');
+        scorePlayer.textContent = `Player score = ${runningScorePlayer}`;
+
+        scoreComputer = document.getElementById('computerScore');
+        scoreComputer.textContent = `Computer score = ${runningScoreComputer}`;
+
+        scoreTie = document.getElementById('tieScore');
+        scoreTie.textContent = `Tie score = ${tieScore}`;
+
 
 
 
